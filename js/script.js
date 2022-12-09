@@ -16,9 +16,6 @@ let age = document.getElementById("age")
 let ac = document.getElementById("al")
 let activity = ac.options[ac.selectedIndex].value;
 
-function teste() {
-    console.log(weight.value, height.value, age.value)
-}
 
 function sex_type() {
 
