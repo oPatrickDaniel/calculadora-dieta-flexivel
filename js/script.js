@@ -43,12 +43,10 @@ function tmb() {
 
         result = (10 * parseInt(height.value)) + (6.25 * parseInt(weight.value)) - (5 * parseInt(age.value)) - 161
         rtn = Math.ceil(result * parseFloat(activity))
-        // console.log("olá mulher. Seu imc é igual a: " + rtn, result, activity)
 
         return "<p class='result'>Olá Mulher. Seu imc é igual a: " + rtn + "</p>"
 
     } else {
-        // console.log("erro")
 
         return "<p class='result'>Preencha todos os dados</p>"
     }
@@ -59,5 +57,4 @@ function tmb() {
 function mudarHtml() {
 
     final.innerHTML = tmb()
-    // console.log("certo")
 }
