@@ -4,17 +4,34 @@
 
 //  tags html
 
-let sex = document.getElementsByName("sex")
-let weight = document.getElementById("weight")
-let height = document.getElementById("height")
-let age = document.getElementById("age")
-let al = document.getElementById("all")
-let final = document.getElementById("final")
+const sex = document.getElementsByName("sex");
+const weight = document.getElementById("weight");
+const height = document.getElementById("height");
+const age = document.getElementById("age");
+const rTmb = document.getElementById("tmb")
+const al = document.getElementById("all");
+const iTdee = document.getElementById("tdee")
+const obj = document.getElementById("objective")
+const kcalDay = document.getElementById("kcal-day")
+const protein = document.getElementById("protein")
+const carbo = document.getElementById("carbo")
+const fat = document.getElementById("fat")
 
+// Value do nível de atividade física
 
-// Value dos níveis de atividade
+function activity() {
 
-let activity = al.options[al.selectedIndex].value;
+    let activity = al.options[al.selectedIndex].value;
+    return parseFloat(activity)
+}
+
+// value do objetivo do cliente
+
+function objective() {
+
+    let objective = obj.options[obj.selectedIndex].value;
+    return objective
+}
 
 
 // função para identificar o sexo do cliente
@@ -23,38 +40,133 @@ function sex_type() {
 
     for (let i = 0; i < sex.length; i++) {
         if (sex[i].checked) {
-            return sex[i].value
+            return sex[i].value;
         }
     }
 }
 
-// função da Taxa metabólica basal
+//formula da taxa metabólica basal
 
 function tmb() {
 
     if (sex_type() === "he") {
 
-        result = (10 * parseInt(height.value)) + (6.25 * parseInt(weight.value)) - (5 * parseInt(age.value)) + 5
-        rtn = Math.ceil(result * parseFloat(activity))
-
-        return "<p class='result'> Seu imc é igual a: " + rtn + "</p>"
+        result = (10 * parseInt(height.value)) + (6.25 * parseInt(weight.value)) - (5 * parseInt(age.value)) + 5;
+        return result
 
     } else if (sex_type() === "she") {
 
-        result = (10 * parseInt(height.value)) + (6.25 * parseInt(weight.value)) - (5 * parseInt(age.value)) - 161
-        rtn = Math.ceil(result * parseFloat(activity))
+        result === (10 * parseInt(height.value)) + (6.25 * parseInt(weight.value)) - (5 * parseInt(age.value)) - 161;
+        return result
 
-        return "<p class='result'>Olá Mulher. Seu imc é igual a: " + rtn + "</p>"
-
-    } else {
-
-        return "<p class='result'>Preencha todos os dados</p>"
     }
 }
 
-// Preenchimento da tag html
+// Calorias de manutenção
 
-function mudarHtml() {
+function tdee() {
 
-    final.innerHTML = tmb()
+    result = tmb() * activity()
+    return result
+}
+
+// cálculo dos macronutrientes por objetivos
+
+function t() {
+
+    w = weight.value
+
+    if (objective() === "1") {
+
+        let kcal_obj = tdee() * 0.8
+        let vProtein = parseInt(weight.value) * 2
+        let vCarbo = (kcal_obj - (vProtein * 4) - (parseInt(w * 9))) / 4
+        let vFat = weight.value
+
+        macros_obj = {
+            kcal: kcal_obj,
+            protein: vProtein,
+            carbo: vCarbo,
+            fat: parseInt(vFat),
+        }
+
+        return macros_obj
+
+    } else if (objective() === "2") {
+
+        let kcal_obj = tdee() * 0.7
+        let vProtein = parseInt(weight.value) * 2
+        let vCarbo = (kcal_obj - (vProtein * 4) - (parseInt(w * 9))) / 4
+        let vFat = weight.value
+
+        macros_obj = {
+            kcal: kcal_obj,
+            protein: vProtein,
+            carbo: vCarbo,
+            fat: parseInt(vFat)
+        }
+
+        return macros_obj
+
+    } else if (objective() === "3") {
+
+        let kcal_obj = tdee()
+        let vProtein = parseInt(weight.value) * 2
+        let vCarbo = (kcal_obj - (vProtein * 4) - (parseInt(w * 9))) / 4
+        let vFat = weight.value
+
+        macros_obj = {
+            kcal: kcal_obj,
+            protein: vProtein,
+            carbo: vCarbo,
+            fat: parseInt(vFat)
+        }
+
+        return macros_obj
+
+    } else if (objective() === "4") {
+
+        let kcal_obj = tdee() * 1.1
+        let vProtein = parseInt(weight.value) * 2
+        let vCarbo = (kcal_obj - (vProtein * 4) - (parseInt(w * 9))) / 4
+        let vFat = weight.value
+
+        macros_obj = {
+            kcal: kcal_obj,
+            protein: vProtein,
+            carbo: vCarbo,
+            fat: parseInt(vFat)
+        }
+
+        return macros_obj
+
+    } else if (objective() === "5") {
+
+        let kcal_obj = tdee() * 1.15
+        let vProtein = parseInt(weight.value) * 2
+        let vCarbo = (kcal_obj - vProtein) / 4
+        let vFat = weight.value
+
+        macros_obj = {
+            kcal: kcal_obj,
+            protein: vProtein,
+            carbo: vCarbo,
+            fat: parseInt(vFat)
+        }
+
+        return macros_obj
+    }
+}
+
+
+// preenchendo dados no html
+
+function preencher() {
+
+    rTmb.innerHTML = '<p class="result" id="tmb">Suas calorias de manutenção: ' + tmb() + 'Kcal</p>';
+    iTdee.innerHTML = '<p class="result" id="tdee">Seu gasto calórico diário: ' + tdee() + 'Kcal</p>';
+    kcalDay.innerHTML = '<p class="result" id="kcal-day">Voce deve comer: ' + t().kcal + 'Kcal</p>';
+    protein.innerHTML = '<p class="result" id="protein">Proteína: ' + t().protein + 'Kcal</p>';
+    carbo.innerHTML = '<p class="result" id="carbo">Carbo: ' + t().carbo + 'Kcal</p>';
+    fat.innerHTML = '<p class="result" id="fat">Gordura: ' + t().fat + 'Kcal</p>';
 }
