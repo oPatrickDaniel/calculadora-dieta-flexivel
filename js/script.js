@@ -163,10 +163,12 @@ function t() {
 
 function preencher() {
 
-    rTmb.innerHTML = '<p class="result" id="tmb">Suas calorias de manutenção: ' + tmb() + 'Kcal</p>';
-    iTdee.innerHTML = '<p class="result" id="tdee">Seu gasto calórico diário: ' + tdee() + 'Kcal</p>';
-    kcalDay.innerHTML = '<p class="result" id="kcal-day">Voce deve comer: ' + t().kcal + 'Kcal</p>';
-    protein.innerHTML = '<p class="result" id="protein">Proteína: ' + t().protein + 'Kcal</p>';
-    carbo.innerHTML = '<p class="result" id="carbo">Carbo: ' + t().carbo + 'Kcal</p>';
-    fat.innerHTML = '<p class="result" id="fat">Gordura: ' + t().fat + 'Kcal</p>';
+    rTmb.innerText = Math.ceil(tmb()) + 'Kcal';
+    iTdee.innerText = Math.ceil(tdee()) + 'Kcal';
+    kcalDay.innerText = Math.ceil(t().kcal) + 'Kcal';
+    protein.innerText = Math.ceil(t().protein) + 'Kcal';
+    carbo.innerText = Math.ceil(t().carbo) + 'Kcal';
+    fat.innerText = Math.ceil(t().fat) + 'Kcal';
+    fat.innerText = Math.ceil(t().fat) + 'Kcal';
+
 }

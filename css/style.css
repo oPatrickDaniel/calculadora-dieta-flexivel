@@ -1,4 +1,50 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: justify;
+}
+
+h1 {
+  text-align: left;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.description {
+  margin: 10px 0 10px 0;
+  font-size: 12px;
+}
+
+.subTitle {
+  color: rgb(19, 33, 112);
+  font-size: 15px;
+  margin: 15px 0 5px 0;
+}
+
+select,
+.inputs,
+.result {
+  padding: 5px 0 5px 5px;
+  border-color: grey;
+  border-style: solid;
+  border-width: 1px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.result {
+  color: rgb(223, 37, 37);
+  font-weight: bold;
+  border-color: gray;
+}
+
+.data,
+.basal,
+.exercise {
+  margin-top: 30px;
 }
