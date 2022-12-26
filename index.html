@@ -14,25 +14,40 @@
 
         <header>
             <h1>CALCULADORA PARA DIETA FLEXÍVEL (TDEE)</h1>
-            <p>Use a calculadora TDEE para saber seu gasto total diário de energia , uma medida de quantas calorias você
+            <p class="description">Use a calculadora TDEE para saber seu gasto total diário de energia , uma medida de
+                quantas calorias você
                 queima por dia. Esta calculadora de calorias também exibirá seu IMC , TMB , Macros e muitas outras
                 estatísticas úteis!</p>
         </header>
 
-        <section>
-            <div class="calc">
-                <div class="data">
-                    <input type="radio" name="sex" value="he" checked>Masculino
-                    <input type="radio" name="sex" value="she">Feminino
-                    <input type="number" name="weight" id="weight" min="7" value="90">Peso(kg)
-                    <input type="number" name="height" id="height" min="70" value="191">Altura(cm)
-                    <input type="number" name="age" id="age" min="1" value="20">Idade
+        <div class="data">
+            <h3 class="subTitle">Sexo*</h3>
 
-        </section>
+            <input type="radio" name="sex" value="he" checked>Masculino
+            <input type="radio" name="sex" value="she">Feminino
 
-        <p class="result" id="tmb">tmb</p>
+            <h3 class="subTitle">Peso(kg)*</h3>
 
-        <section>
+            <input class="inputs" type="number" name="weight" id="weight" min="7" value="90">
+
+            <h3 class="subTitle">Altura(cm)*</h3>
+
+            <input class="inputs" type="number" name="height" id="height" min="70" value="191">
+
+            <h3 class="subTitle">Idade*</h3>
+
+            <input class="inputs" type="number" name="age" id="age" min="1" value="20">
+        </div>
+
+        <div class="basal">
+            <h3 class="subTitle">Taxa Metabólica Basal</h3>
+            <p class="result" id="tmb">0Kcal</p>
+            <p class="description">Estas são as calorias que seu corpo gasta para sobreviver: Respirar, pensar, etc.</p>
+        </div>
+
+        <div class="exercise">
+            <h3 class="subTitle">Frequência de exercícios*</h3>
+
             <select name="activityLevel" id="all">
                 <option value="1.2">Sedentário (Exercício mínimo)</option>
                 <option value="1.375">Exercício Leve (1-3 dias por semana)</option>
@@ -40,28 +55,56 @@
                 <option value="1.725">Exercício Intenso (6-7 dias por semana)</option>
                 <option value="1.9">Exercício Muito Intenso (Atleta, 2x por dia)</option>
             </select>
-        </section>
+        </div>
 
-        <p class="result" id="tdee">tdee</p>
+        <div class="totalDay">
+            <h3 class="subTitle">TDEE</h3>
+            <p class="result" id="tdee">0Kcal</p>
+            <p class="description">Estas são as calorias que você gasta em média no dia a dia:</p>
 
-        <select name=" objective" id="objective">
-            <option value="1">Emagrecer</option>
-            <option value="2">Emagrecer agressivo</option>
-            <option value="3" selected>Manter peso</option>
-            <option value="4">Ganhos "secos"</option>
-            <option value="5">Ganhos agressivos</option>
-        </select>
+        </div>
 
-        <section class="macros">
-            <p class="result" id="kcal-day">objetivo de calorias</p>
-            <p class="result" id="protein">proteína</p>
-            <p class="result" id="carbo">carboidrato</p>
-            <p class="result" id="fat">gordura</p>
-        </section>
+        <div class="goal">
+            <h3 class="subTitle">Seu Objetivo*</h3>
+            <p class="description">Lembre que as opções mais sustentáveis são as "emagrecer", "manter" e "ganhos secos".
+                com elas o processo é mais lento, porém muito mais tranquilo e saudável.</p>
+
+            <select name=" objective" id="objective">
+                <option value="1">Emagrecer</option>
+                <option value="2">Emagrecer agressivo</option>
+                <option value="3" selected>Manter peso</option>
+                <option value="4">Ganhos "secos"</option>
+                <option value="5">Ganhos agressivos</option>
+            </select>
+        </div>
+
+        <div class="macros">
+
+            <h3 class="subTitle">Voce deve consumir por dia:</h3>
+            <p class="result" id="kcal-day">0kcal</p>
+            <p class="description">Estas são as calorias que você deve consumir de acordo com o seu objetivo acima. (se
+                você quer
+                ganhar peso, por exemplo, deve comer mais calorias que seu TDEE; se você quer manter estarão
+                iguais; se quiser emagrecer deve comer menos que seu TDEE)</p>
+
+            <h3 class="subTitle">Proteína</h3>
+            <p class="result" id="protein">0Kcal</p>
+            <p class="description">A quantidade de proteína foi calculada em cima do seu peso corporal: 2g/kg</p>
+
+            <h3 class="subTitle">Carboidrato</h3>
+            <p class="result" id="carbo">0Kcal</p>
+            <p class="description">A quantidade de Carboidratos é o restante na subtração das proteínas de gorduras</p>
+
+            <h3 class="subTitle">Gordura</h3>
+            <p class="result" id="fat">0Kcal</p>
+            <p class="description">A quantidade de gordura foi calculada em cima do seu peso corporal: 1g/kg</p>
+
+        </div>
+
         <input onclick="preencher()" type="submit" value="Calcular">
-    </div>
 
-    <script src="./js/script.js"></script>
+
+        <script src="./js/script.js"></script>
 </body>
 
 </html>
