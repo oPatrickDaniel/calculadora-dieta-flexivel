@@ -16,6 +16,8 @@ const kcalDay = document.getElementById("kcal-day")
 const protein = document.getElementById("protein")
 const carbo = document.getElementById("carbo")
 const fat = document.getElementById("fat")
+const inp = document.getElementsByClassName("inputs");
+const s = document.getElementsByClassName("s");
 
 // Value do nível de atividade física
 
@@ -32,7 +34,6 @@ function objective() {
     let objective = obj.options[obj.selectedIndex].value;
     return objective
 }
-
 
 // função para identificar o sexo do cliente
 
@@ -56,9 +57,8 @@ function tmb() {
 
     } else if (sex_type() === "she") {
 
-        result === (10 * parseInt(height.value)) + (6.25 * parseInt(weight.value)) - (5 * parseInt(age.value)) - 161;
+        result = (10 * parseInt(height.value)) + (6.25 * parseInt(weight.value)) - (5 * parseInt(age.value)) - 161;
         return result
-
     }
 }
 
@@ -121,7 +121,6 @@ function t() {
             carbo: vCarbo,
             fat: parseInt(vFat)
         }
-
         return macros_obj
 
     } else if (objective() === "4") {
@@ -158,17 +157,31 @@ function t() {
     }
 }
 
-
 // preenchendo dados no html
 
-function preencher() {
+for (let i of inp) {
 
-    rTmb.innerText = Math.ceil(tmb()) + 'Kcal';
-    iTdee.innerText = Math.ceil(tdee()) + 'Kcal';
-    kcalDay.innerText = Math.ceil(t().kcal) + 'Kcal';
-    protein.innerText = Math.ceil(t().protein) + 'Kcal';
-    carbo.innerText = Math.ceil(t().carbo) + 'Kcal';
-    fat.innerText = Math.ceil(t().fat) + 'Kcal';
-    fat.innerText = Math.ceil(t().fat) + 'Kcal';
+    i.onblur = function () {
 
+        rTmb.innerText = Math.ceil(tmb()) + 'Kcal';
+        iTdee.innerText = Math.ceil(tdee()) + 'Kcal';
+        kcalDay.innerText = Math.ceil(t().kcal) + 'Kcal';
+        protein.innerText = Math.ceil(t().protein) + 'Kcal';
+        carbo.innerText = Math.ceil(t().carbo) + 'Kcal';
+        fat.innerText = Math.ceil(t().fat) + 'Kcal';
+        fat.innerText = Math.ceil(t().fat) + 'Kcal';
+    }
+
+} for (let i of s) {
+
+    i.onchange = function () {
+
+        rTmb.innerText = Math.ceil(tmb()) + 'Kcal';
+        iTdee.innerText = Math.ceil(tdee()) + 'Kcal';
+        kcalDay.innerText = Math.ceil(t().kcal) + 'Kcal';
+        protein.innerText = Math.ceil(t().protein) + 'Kcal';
+        carbo.innerText = Math.ceil(t().carbo) + 'Kcal';
+        fat.innerText = Math.ceil(t().fat) + 'Kcal';
+        fat.innerText = Math.ceil(t().fat) + 'Kcal';
+    }
 }

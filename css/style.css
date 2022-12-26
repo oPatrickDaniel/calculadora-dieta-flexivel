@@ -3,6 +3,9 @@
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   text-align: justify;
+
+  --var--azulEscuro: rgb(19, 33, 112);
+  --var--vermelhoEscuro: rgb(223, 37, 37);
 }
 
 h1 {
@@ -10,6 +13,7 @@ h1 {
 }
 
 .container {
+  max-width: 750px;
   width: 80%;
   margin: auto;
   margin-top: 10px;
@@ -21,7 +25,7 @@ h1 {
 }
 
 .subTitle {
-  color: rgb(19, 33, 112);
+  color: var(--var--azulEscuro);
   font-size: 15px;
   margin: 15px 0 5px 0;
 }
@@ -35,11 +39,11 @@ select,
   border-width: 1px;
   width: 100%;
   box-sizing: border-box;
+  font-weight: bold;
 }
 
 .result {
-  color: rgb(223, 37, 37);
-  font-weight: bold;
+  color: var(--var--vermelhoEscuro);
   border-color: gray;
 }
 
