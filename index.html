@@ -23,20 +23,20 @@
         <div class="data">
             <h3 class="subTitle">Sexo*</h3>
 
-            <input type="radio" name="sex" value="he" checked>Masculino
-            <input type="radio" name="sex" value="she">Feminino
+            <input class="s" type="radio" name="sex" value="he" checked>Masculino
+            <input class="s" type="radio" name="sex" value="she">Feminino
 
             <h3 class="subTitle">Peso(kg)*</h3>
 
-            <input class="inputs" type="number" name="weight" id="weight" min="7">
+            <input class="inputs" type="number" name="weight" id="weight" min="7" value="0">
 
             <h3 class="subTitle">Altura(cm)*</h3>
 
-            <input class="inputs" type="number" name="height" id="height" min="70">
+            <input class="inputs" type="number" name="height" id="height" min="70" value="0">
 
             <h3 class="subTitle">Idade*</h3>
 
-            <input class="inputs" type="number" name="age" id="age" min="1">
+            <input class="inputs" type="number" name="age" id="age" min="1" value="0">
         </div>
 
         <div class="basal">
@@ -48,7 +48,7 @@
         <div class="exercise">
             <h3 class="subTitle">Frequência de exercícios*</h3>
 
-            <select name="activityLevel" id="all">
+            <select class="s" name="activityLevel" id="all">
                 <option value="1.2">Sedentário (Exercício mínimo)</option>
                 <option value="1.375">Exercício Leve (1-3 dias por semana)</option>
                 <option value="1.55">Exercício Moderado (3-5 dias por semana)</option>
@@ -69,7 +69,7 @@
             <p class="description">Lembre que as opções mais sustentáveis são as "emagrecer", "manter" e "ganhos secos".
                 com elas o processo é mais lento, porém muito mais tranquilo e saudável.</p>
 
-            <select name=" objective" id="objective">
+            <select class="s" name=" objective" id="objective">
                 <option value="1">Emagrecer</option>
                 <option value="2">Emagrecer agressivo</option>
                 <option value="3" selected>Manter peso</option>
@@ -100,8 +100,6 @@
             <p class="description">A quantidade de gordura foi calculada em cima do seu peso corporal: 1g/kg</p>
 
         </div>
-
-        <input onclick="preencher()" type="submit" value="Calcular">
 
 
         <script src="./js/script.js"></script>
