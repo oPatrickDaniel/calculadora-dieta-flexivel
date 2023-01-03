@@ -17,7 +17,7 @@ const protein = document.getElementById("protein")
 const carbo = document.getElementById("carbo")
 const fat = document.getElementById("fat")
 const inp = document.getElementsByClassName("inputs");
-const s = document.getElementsByClassName("s");
+const s = document.getElementsByClassName("reload");
 
 // Value do nível de atividade física
 
